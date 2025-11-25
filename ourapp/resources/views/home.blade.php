@@ -3,7 +3,6 @@
 @section('title', 'Beranda')
 
 @section('content')
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-icon">{{ config('sampahku.hero.icon') }}</div>
@@ -13,7 +12,6 @@
         </div>
     </section>
 
-    <!-- Fitur Utama -->
     <section class="section">
         <h2 class="section-title">Fitur Utama</h2>
         <div class="features-grid">
@@ -27,7 +25,6 @@
         </div>
     </section>
 
-    <!-- Edukasi Sampah -->
     <section class="section edukasi-section">
         <h2 class="section-title">Jenis-Jenis Sampah</h2>
         <div class="waste-types">
@@ -42,7 +39,6 @@
         </div>
     </section>
 
-    <!-- Tentang -->
     <section class="section">
         <h2 class="section-title">Tentang Sistem</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-light);">

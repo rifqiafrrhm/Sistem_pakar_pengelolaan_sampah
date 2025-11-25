@@ -1,8 +1,6 @@
 import './bootstrap';
 
-// Konsultasi System JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Auto-submit on option click untuk halaman konsultasi
     const options = document.querySelectorAll('.option');
     if (options.length > 0) {
         options.forEach(option => {
@@ -11,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (radio) {
                     radio.checked = true;
 
-                    // Visual feedback
                     document.querySelectorAll('.option').forEach(opt => {
                         opt.style.borderColor = 'transparent';
                     });
@@ -21,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth scroll untuk navigasi
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -39,7 +35,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Bootstrap components initialization (jika diperlukan)
-    // const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    // const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 });

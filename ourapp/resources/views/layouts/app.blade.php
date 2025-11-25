@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', config('sampahku.app_name')) - {{ config('sampahku.app_tagline') }}</title>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     @vite(['resources/css/app.css'])
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="{{ url('/') }}" class="logo">
@@ -23,12 +22,10 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
         @yield('content')
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>{{ config('sampahku.footer.text') }}</p>

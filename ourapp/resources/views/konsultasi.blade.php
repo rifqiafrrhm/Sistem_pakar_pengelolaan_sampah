@@ -10,14 +10,12 @@
     </div>
 
     @if (!$result)
-        <!-- Progress Bar -->
         <div class="progress-container">
             <div class="progress-bar" style="width: {{ $progress }}%">
                 {{ round($progress) }}%
             </div>
         </div>
 
-        <!-- Question Card -->
         <div class="konsultasi-card">
             <form method="POST">
                 @csrf
@@ -52,7 +50,6 @@
         </div>
 
     @else
-        <!-- Result Card -->
         <div class="konsultasi-card result-card">
             <div class="result-header">
                 <div class="result-icon">{{ $result['icon'] }}</div>

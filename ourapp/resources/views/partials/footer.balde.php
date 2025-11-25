@@ -1,4 +1,3 @@
-    <!-- FOOTER -->
     <footer class="footer" id="kontak">
         <div class="footer-content">
             <p><?php echo $footer_text; ?></p>
