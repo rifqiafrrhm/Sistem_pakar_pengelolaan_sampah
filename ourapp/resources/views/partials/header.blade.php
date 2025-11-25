@@ -1,13 +1,13 @@
-<nav class="navbar" id="home">
-    <div class="nav-container">
-        <div class="logo">
-            <span>♻️</span>
-            <span><?php echo $app_name; ?></span>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{{ url('/') }}" class="logo">
+                <span>♻️</span>
+                <span>{{ config('sampahku.app_name') }}</span>
+            </a>
+            <ul class="nav-menu">
+                @foreach(config('sampahku.menu_items') as $item)
+                    <li><a href="{{ url($item['link']) }}">{{ $item['name'] }}</a></li>
+                @endforeach
+            </ul>
         </div>
-        <ul class="nav-menu">
-            <?php foreach ($menu_items as $item): ?>
-                <li><a href="<?php echo $item['link']; ?>"><?php echo $item['name']; ?></a></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-</nav>
+    </nav>

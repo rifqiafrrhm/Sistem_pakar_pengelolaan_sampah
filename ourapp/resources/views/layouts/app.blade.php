@@ -8,33 +8,14 @@
     @vite(['resources/css/app.css'])
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="{{ url('/') }}" class="logo">
-                <span>♻️</span>
-                <span>{{ config('sampahku.app_name') }}</span>
-            </a>
-            <ul class="nav-menu">
-                @foreach(config('sampahku.menu_items') as $item)
-                    <li><a href="{{ url($item['link']) }}">{{ $item['name'] }}</a></li>
-                @endforeach
-            </ul>
-        </div>
-    </nav>
+
+@include('partials.header')
 
     <main>
         @yield('content')
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>{{ config('sampahku.footer.text') }}</p>
-            <div class="footer-links">
-                <a href="mailto:{{ config('sampahku.footer.email') }}">📧 {{ config('sampahku.footer.email') }}</a>
-                <a href="{{ config('sampahku.footer.github') }}" target="_blank">🔗 GitHub</a>
-            </div>
-        </div>
-    </footer>
+@include('partials.footer')
 
     @vite(['resources/js/app.js'])
 </body>

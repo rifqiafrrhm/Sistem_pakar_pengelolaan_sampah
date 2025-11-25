@@ -3,6 +3,7 @@
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ExpertSystemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\WasteKnowledgeController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/edukasi', [PageController::class, 'edukasi'])->name('edukasi');
@@ -12,3 +13,12 @@ Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 Route::get('/konsultasi', [ExpertSystemController::class, 'konsultasi'])->name('konsultasi');
 Route::post('/konsultasi', [ExpertSystemController::class, 'konsultasi']);
 Route::post('/kontak', [PageController::class, 'kontakStore'])->name('kontak.submit');
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('knowledge', WasteKnowledgeController::class);
+
+    // TAMBAHKAN INI - Route untuk toggle status
+    Route::post('knowledge/{knowledge}/toggle-status', [WasteKnowledgeController::class, 'toggleStatus'])
+         ->name('knowledge.toggle-status');
+});

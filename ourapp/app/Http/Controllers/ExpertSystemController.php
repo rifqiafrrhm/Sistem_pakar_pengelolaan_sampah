@@ -160,36 +160,36 @@ class ExpertSystemController extends Controller
             'id' => 'q1',
             'question' => 'Dari mana asal sampah Anda?',
             'options' => [
-                ['value' => 'makanan', 'label' => '🍽️ Sisa Makanan/Masakan', 'icon' => '🍽️'],
-                ['value' => 'tumbuhan', 'label' => '🌿 Tumbuhan/Daun/Ranting', 'icon' => '🌿'],
-                ['value' => 'kemasan', 'label' => '📦 Kemasan/Bungkus Produk', 'icon' => '📦'],
-                ['value' => 'elektronik', 'label' => '🔌 Elektronik/Baterai', 'icon' => '🔌'],
-                ['value' => 'medis', 'label' => '💊 Medis/Obat-obatan', 'icon' => '💊']
+                ['value' => 'makanan', 'label' => ' Sisa Makanan/Masakan', 'icon' => '🍽️'],
+                ['value' => 'tumbuhan', 'label' => ' Tumbuhan/Daun/Ranting', 'icon' => '🌿'],
+                ['value' => 'kemasan', 'label' => ' Kemasan/Bungkus Produk', 'icon' => '📦'],
+                ['value' => 'elektronik', 'label' => ' Elektronik/Baterai', 'icon' => '🔌'],
+                ['value' => 'medis', 'label' => ' Medis/Obat-obatan', 'icon' => '💊']
             ]
         ],
         [
             'id' => 'q2',
             'question' => 'Bagaimana tekstur sampah Anda?',
             'options' => [
-                ['value' => 'basah', 'label' => '💧 Basah/Lembek', 'icon' => '💧'],
-                ['value' => 'kering', 'label' => '🏜️ Kering/Keras', 'icon' => '🏜️'],
-                ['value' => 'licin', 'label' => '✨ Licin/Fleksibel', 'icon' => '✨']
+                ['value' => 'basah', 'label' => ' Basah/Lembek', 'icon' => '💧'],
+                ['value' => 'kering', 'label' => ' Kering/Keras', 'icon' => '🏜️'],
+                ['value' => 'licin', 'label' => ' Licin/Fleksibel', 'icon' => '✨']
             ]
         ],
         [
             'id' => 'q3',
             'question' => 'Apakah sampah berbau?',
             'options' => [
-                ['value' => 'berbau', 'label' => '👃 Ya, Berbau', 'icon' => '👃'],
-                ['value' => 'tidak', 'label' => '🌬️ Tidak Berbau', 'icon' => '🌬️']
+                ['value' => 'berbau', 'label' => ' Ya, Berbau', 'icon' => '👃'],
+                ['value' => 'tidak', 'label' => ' Tidak Berbau', 'icon' => '🌬️']
             ]
         ],
         [
             'id' => 'q4',
             'question' => 'Apakah sampah ini berbahaya atau mengandung bahan kimia?',
             'options' => [
-                ['value' => 'berbahaya', 'label' => '⚠️ Ya, Berbahaya/Kimia', 'icon' => '⚠️'],
-                ['value' => 'aman', 'label' => '✅ Tidak, Aman', 'icon' => '✅']
+                ['value' => 'berbahaya', 'label' => ' Ya, Berbahaya/Kimia', 'icon' => '⚠️'],
+                ['value' => 'aman', 'label' => ' Tidak, Aman', 'icon' => '✅']
             ]
         ]
     ];
