@@ -1,4 +1,3 @@
-{{-- resources/views/tentang.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Tentang Aplikasi')
@@ -7,7 +6,6 @@
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-green-600 mb-8 text-center">🧾 Tentang Aplikasi</h1>
 
-    <!-- Tujuan Aplikasi -->
     <section class="mb-12">
         <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
             <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
@@ -56,25 +54,11 @@
                             </p>
                         </div>
                     </div>
-
-                    <div class="flex items-start">
-                        <div class="bg-purple-100 p-2 rounded-lg mr-4">
-                            <span class="text-purple-600 text-xl">📊</span>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-800 mb-2">Data dan Analisis</h3>
-                            <p class="text-gray-600 text-sm">
-                                Menyajikan data statistik dan informasi terkini tentang
-                                pengelolaan sampah untuk mendukung pengambilan keputusan.
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Teknologi yang Digunakan -->
     <section class="mb-12">
         <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
             <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
@@ -82,7 +66,6 @@
                 Teknologi yang Digunakan
             </h2>
 
-            <!-- Backend Technologies -->
             <div class="mb-8">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">Backend Development</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -112,7 +95,6 @@
                 </div>
             </div>
 
-            <!-- Sistem Pakar -->
             <div class="mb-8">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">Metode Sistem Pakar</h3>
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
@@ -140,7 +122,6 @@
                 </div>
             </div>
 
-            <!-- Frontend Technologies -->
             <div>
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">Frontend Development</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -172,7 +153,6 @@
         </div>
     </section>
 
-    <!-- Profil Developer & Tim -->
     <section class="mb-12">
         <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
             <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
@@ -181,62 +161,41 @@
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Developer -->
                 <div class="text-center bg-purple-50 rounded-lg p-6 border border-purple-200">
                     <div class="w-20 h-20 bg-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">💻</span>
+                        <span class="text-white text-2xl">👨‍🏫</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Nama Developer</h3>
-                    <p class="text-purple-600 text-sm mb-3">Full Stack Developer</p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Rifqi Afriza Rahman</h3>
+                    <p class="text-purple-600 text-sm mb-3">Mahasiswa 1</p>
                     <p class="text-gray-600 text-sm mb-4">
-                        Bertanggung jawab dalam pengembangan aplikasi, implementasi sistem pakar,
-                        dan integrasi database.
-                    </p>
-                    <div class="flex justify-center space-x-3">
-                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs">PHP</span>
-                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs">Laravel</span>
-                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs">MySQL</span>
-                    </div>
+                        Mahasiswa Teknik Komputer Universitas Negeri Makassar.
                 </div>
 
-                <!-- Dosen Pembimbing 1 -->
                 <div class="text-center bg-green-50 rounded-lg p-6 border border-green-200">
                     <div class="w-20 h-20 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                         <span class="text-white text-2xl">👨‍🏫</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Dr. Ahmad Rahman, M.Kom</h3>
-                    <p class="text-green-600 text-sm mb-3">Dosen Pembimbing 1</p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Muhammad Alfian Wirayudha</h3>
+                    <p class="text-green-600 text-sm mb-3">Mahasiswa 2</p>
                     <p class="text-gray-600 text-sm mb-4">
-                        Pembimbing dalam bidang kecerdasan buatan dan sistem pakar.
-                        Memberikan guidance dalam implementasi forward chaining.
+                        Mahasiswa Teknik Komputer Universitas Negeri Makassar.
                     </p>
-                    <div class="flex justify-center space-x-3">
-                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">AI Expert</span>
-                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">Research</span>
-                    </div>
                 </div>
 
-                <!-- Dosen Pembimbing 2 -->
                 <div class="text-center bg-blue-50 rounded-lg p-6 border border-blue-200">
                     <div class="w-20 h-20 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                         <span class="text-white text-2xl">👩‍🏫</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Prof. Siti Marlina, M.T</h3>
-                    <p class="text-blue-600 text-sm mb-3">Dosen Pembimbing 2</p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Abdul Syafaat S.</h3>
+                    <p class="text-blue-600 text-sm mb-3">Mahasiswa 3</p>
                     <p class="text-gray-600 text-sm mb-4">
-                        Pembimbing dalam bidang rekayasa perangkat lunak dan manajemen proyek.
-                        Memastikan kualitas dan metodologi pengembangan.
+                        Mahasiswa Teknik Komputer Universitas Negeri Makassar.
                     </p>
-                    <div class="flex justify-center space-x-3">
-                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Software Eng</span>
-                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Project Mgmt</span>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Informasi Proyek -->
     <section>
         <div class="bg-gradient-to-r from-green-500 to-blue-500 rounded-lg p-8 text-white">
             <div class="text-center">
@@ -246,9 +205,9 @@
                     Kecerdasan Buatan dan Sistem Pakar untuk mendukung pengelolaan sampah yang berkelanjutan.
                 </p>
                 <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">📅 Tahun 2024</div>
-                    <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">🎓 Program Studi Teknik Informatika</div>
-                    <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">🏫 Universitas Contoh</div>
+                    <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">📅 Tahun 2025</div>
+                    <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">🎓 Program Studi Teknik Komputer</div>
+                    <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">🏫 Universitas Negeri Makassar</div>
                 </div>
             </div>
         </div>

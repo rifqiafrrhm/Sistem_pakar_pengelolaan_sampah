@@ -1,14 +1,8 @@
 <?php
-// ============================================
-// KONFIGURASI APLIKASI SAMPAHKU - EDIT DI SINI
-// ============================================
-
 return [
-    // Informasi Aplikasi
     'app_name' => "SampahKu",
     'app_tagline' => "Sistem Pakar Pengelolaan Sampah",
 
-    // Hero Section
     'hero' => [
         'title' => "Sistem Pakar Pengelolaan Sampah",
         'subtitle' => "Dapatkan rekomendasi jenis sampah dan cara pengelolaan yang tepat.",
@@ -16,7 +10,6 @@ return [
         'icon' => "🗑️♻️🌱"
     ],
 
-    // Menu Navigasi
     'menu_items' => [
         ["name" => "Beranda", "link" => "/"],
         ["name" => "Konsultasi", "link" => "/konsultasi"],
@@ -25,7 +18,6 @@ return [
         ["name" => "Kontak", "link" => "/kontak"]
     ],
 
-    // Fitur Utama
     'features' => [
         [
             "icon" => "🔍",
@@ -42,14 +34,8 @@ return [
             "title" => "Edukasi Lingkungan",
             "description" => "Pelajari pentingnya pengelolaan sampah untuk lingkungan"
         ],
-        [
-            "icon" => "📋",
-            "title" => "Riwayat Konsultasi",
-            "description" => "Simpan dan lihat kembali hasil konsultasi Anda"
-        ]
     ],
 
-    // Edukasi Jenis Sampah
     'waste_types' => [
         [
             "icon" => "🍃",
@@ -71,9 +57,8 @@ return [
         ]
     ],
 
-    // Footer
     'footer' => [
-        'text' => "© 2024 SampahKu - Sistem Pakar Pengelolaan Sampah. All rights reserved.",
+        'text' => "© 2025 SampahKu - Sistem Pakar Pengelolaan Sampah. All rights reserved.",
         'email' => "info@sampahku.com",
         'github' => "https://github.com/yourusername/sampahku"
     ]

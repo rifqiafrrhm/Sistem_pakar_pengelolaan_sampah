@@ -1,4 +1,3 @@
-{{-- resources/views/edukasi.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Edukasi Sampah')
@@ -7,11 +6,9 @@
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-green-600 mb-8 text-center">📚 Edukasi Pengelolaan Sampah</h1>
 
-    <!-- Kategori Sampah -->
     <section class="mb-12">
         <h2 class="text-2xl font-semibold text-gray-800 mb-6">Kategori Sampah</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Organik -->
             <div class="bg-green-50 border border-green-200 rounded-lg p-6 shadow-sm">
                 <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-4">
                     <span class="text-white text-2xl">🍂</span>
@@ -28,7 +25,6 @@
                 </ul>
             </div>
 
-            <!-- Anorganik -->
             <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 shadow-sm">
                 <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-4">
                     <span class="text-white text-2xl">🧴</span>
@@ -45,7 +41,6 @@
                 </ul>
             </div>
 
-            <!-- B3 -->
             <div class="bg-red-50 border border-red-200 rounded-lg p-6 shadow-sm">
                 <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mb-4">
                     <span class="text-white text-2xl">⚠️</span>
@@ -62,7 +57,6 @@
                 </ul>
             </div>
 
-            <!-- Daur Ulang -->
             <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 shadow-sm">
                 <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mb-4">
                     <span class="text-white text-2xl">♻️</span>
@@ -81,12 +75,10 @@
         </div>
     </section>
 
-    <!-- Grafik / Ilustrasi Jenis Sampah -->
     <section class="mb-12">
         <h2 class="text-2xl font-semibold text-gray-800 mb-6">Diagram Jenis Sampah</h2>
         <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <div class="flex flex-col md:flex-row items-center justify-between">
-                <!-- Legend -->
                 <div class="mb-6 md:mb-0 md:w-1/3">
                     <div class="space-y-3">
                         <div class="flex items-center">
@@ -108,7 +100,6 @@
                     </div>
                 </div>
 
-                <!-- Simple Chart -->
                 <div class="md:w-2/3">
                     <div class="bg-gray-100 rounded-lg p-4">
                         <div class="flex items-end justify-center h-32 space-x-2">
@@ -135,11 +126,9 @@
         </div>
     </section>
 
-    <!-- Artikel Pendek -->
     <section class="mb-12">
         <h2 class="text-2xl font-semibold text-gray-800 mb-6">Artikel Edukasi</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Artikel 1 -->
             <article class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 class="text-xl font-semibold text-green-700 mb-3">Cara Memilah Sampah di Rumah</h3>
                 <p class="text-gray-600 mb-4">
@@ -157,7 +146,6 @@
                 </div>
             </article>
 
-            <!-- Artikel 2 -->
             <article class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 class="text-xl font-semibold text-green-700 mb-3">Manfaat Daur Ulang untuk Lingkungan</h3>
                 <p class="text-gray-600 mb-4">
@@ -177,7 +165,6 @@
         </div>
     </section>
 
-    <!-- Tips Tambahan -->
     <section class="bg-green-50 border border-green-200 rounded-lg p-6">
         <h3 class="text-xl font-semibold text-green-700 mb-4">💡 Tips Praktis</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">

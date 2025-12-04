@@ -3,158 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\WasteKnowledge;
 
 class ExpertSystemController extends Controller
 {
-    // Basis Aturan Sistem Pakar
-    private $knowledge_base = [
-        [
-            'id' => 'organik_basah',
-            'jenis' => 'Sampah Organik Basah',
-            'icon' => '🍃',
-            'ciri' => [
-                'tekstur' => 'Lembek/basah',
-                'bau' => 'Berbau',
-                'asal' => 'Sisa makanan/tumbuhan'
-            ],
-            'pengelolaan' => 'Kompos atau biogas',
-            'deskripsi' => 'Sampah ini dapat diurai dengan cepat dan dapat dijadikan pupuk kompos.',
-            'langkah' => [
-                'Pisahkan dari sampah lain',
-                'Masukkan ke komposter atau lubang biopori',
-                'Tunggu 2-3 bulan hingga jadi kompos',
-                'Gunakan sebagai pupuk tanaman'
-            ]
-        ],
-        [
-            'id' => 'organik_kering',
-            'jenis' => 'Sampah Organik Kering',
-            'icon' => '🍂',
-            'ciri' => [
-                'tekstur' => 'Kering/keras',
-                'bau' => 'Tidak berbau',
-                'asal' => 'Daun kering/ranting'
-            ],
-            'pengelolaan' => 'Kompos kering atau mulsa',
-            'deskripsi' => 'Cocok untuk kompos kering atau digunakan sebagai mulsa tanaman.',
-            'langkah' => [
-                'Kumpulkan sampah organik kering',
-                'Cacah menjadi potongan kecil',
-                'Campurkan dengan tanah',
-                'Atau gunakan langsung sebagai mulsa penutup tanah'
-            ]
-        ],
-        [
-            'id' => 'plastik',
-            'jenis' => 'Sampah Plastik',
-            'icon' => '♻️',
-            'ciri' => [
-                'tekstur' => 'Licin/fleksibel',
-                'bau' => 'Tidak berbau',
-                'asal' => 'Kemasan/botol plastik'
-            ],
-            'pengelolaan' => 'Daur ulang atau bank sampah',
-            'deskripsi' => 'Plastik dapat didaur ulang menjadi produk baru atau dijual ke bank sampah.',
-            'langkah' => [
-                'Bersihkan dari sisa makanan',
-                'Pisahkan berdasarkan jenis (PET, HDPE, PP)',
-                'Kumpulkan hingga jumlah banyak',
-                'Setor ke bank sampah atau pengepul'
-            ]
-        ],
-        [
-            'id' => 'kertas',
-            'jenis' => 'Sampah Kertas/Kardus',
-            'icon' => '📦',
-            'ciri' => [
-                'tekstur' => 'Kering/kaku',
-                'bau' => 'Tidak berbau',
-                'asal' => 'Kertas/kardus bekas'
-            ],
-            'pengelolaan' => 'Daur ulang',
-            'deskripsi' => 'Kertas dan kardus masih memiliki nilai ekonomi tinggi untuk didaur ulang.',
-            'langkah' => [
-                'Pastikan kertas dalam kondisi kering',
-                'Lipat atau press untuk menghemat tempat',
-                'Pisahkan dari plastik atau lakban',
-                'Jual ke pengepul atau bank sampah'
-            ]
-        ],
-        [
-            'id' => 'kaca',
-            'jenis' => 'Sampah Kaca/Botol',
-            'icon' => '🫙',
-            'ciri' => [
-                'tekstur' => 'Keras/pecah',
-                'bau' => 'Tidak berbau',
-                'asal' => 'Botol kaca/pecahan'
-            ],
-            'pengelolaan' => 'Daur ulang dengan hati-hati',
-            'deskripsi' => 'Kaca dapat didaur ulang berkali-kali tanpa kehilangan kualitas.',
-            'langkah' => [
-                'Hati-hati dengan pecahan',
-                'Bungkus pecahan dengan koran',
-                'Botol utuh bisa digunakan kembali',
-                'Setor ke bank sampah khusus kaca'
-            ]
-        ],
-        [
-            'id' => 'logam',
-            'jenis' => 'Sampah Logam/Kaleng',
-            'icon' => '🥫',
-            'ciri' => [
-                'tekstur' => 'Keras/mengkilap',
-                'bau' => 'Tidak berbau',
-                'asal' => 'Kaleng minuman/logam'
-            ],
-            'pengelolaan' => 'Daur ulang',
-            'deskripsi' => 'Logam memiliki nilai jual tinggi dan mudah didaur ulang.',
-            'langkah' => [
-                'Bersihkan dari isi',
-                'Gepengkan kaleng untuk hemat tempat',
-                'Pisahkan aluminium dan besi',
-                'Jual ke pengepul dengan harga per kg'
-            ]
-        ],
-        [
-            'id' => 'b3_elektronik',
-            'jenis' => 'Sampah B3 Elektronik',
-            'icon' => '🔋',
-            'ciri' => [
-                'tekstur' => 'Keras/berbahaya',
-                'bau' => 'Kadang berbau kimia',
-                'asal' => 'Baterai/elektronik rusak'
-            ],
-            'pengelolaan' => 'Serahkan ke tempat khusus B3',
-            'deskripsi' => 'BERBAHAYA! Mengandung logam berat yang mencemari lingkungan.',
-            'langkah' => [
-                'JANGAN buang ke tempat sampah biasa',
-                'Kumpulkan dalam wadah terpisah',
-                'Cari drop point atau tempat pengumpulan B3',
-                'Serahkan ke pihak berwenang'
-            ]
-        ],
-        [
-            'id' => 'b3_medis',
-            'jenis' => 'Sampah B3 Medis',
-            'icon' => '💉',
-            'ciri' => [
-                'tekstur' => 'Bervariasi',
-                'bau' => 'Bau obat/kimia',
-                'asal' => 'Jarum/obat/perban'
-            ],
-            'pengelolaan' => 'Serahkan ke fasilitas kesehatan',
-            'deskripsi' => 'SANGAT BERBAHAYA! Bisa menularkan penyakit.',
-            'langkah' => [
-                'Masukkan dalam wadah khusus (safety box)',
-                'JANGAN dibuang sembarangan',
-                'Kembalikan ke apotek/rumah sakit',
-                'Atau hubungi dinas kesehatan setempat'
-            ]
-        ]
-    ];
-
-    // Pertanyaan Sistem Pakar
     private $questions = [
         [
             'id' => 'q1',
@@ -194,52 +46,30 @@ class ExpertSystemController extends Controller
         ]
     ];
 
-    // Logika Inferensi Sistem Pakar
-    private function diagnoseWaste($answers)
-    {
-        $asal = $answers['q1'] ?? '';
-        $tekstur = $answers['q2'] ?? '';
-        $bau = $answers['q3'] ?? '';
-        $bahaya = $answers['q4'] ?? '';
+    private $customRules = [
+        ['q1' => 'medis', 'q2' => 'kering', 'q3' => 'tidak', 'q4' => 'berbahaya', 'result' => 'Limbah Medis & Obat-obatan'],
+        ['q1' => 'medis', 'q2' => 'kering', 'q3' => 'tidak', 'q4' => 'aman', 'result' => 'Limbah Medis & Obat-obatan'],
+        ['q1' => 'medis', 'q2' => 'basah', 'q3' => 'berbau', 'q4' => 'berbahaya', 'result' => 'Limbah Medis & Obat-obatan'],
 
-        // Aturan Inferensi
-        if ($bahaya === 'berbahaya') {
-            if ($asal === 'elektronik') {
-                return $this->findWasteById('b3_elektronik');
-            } elseif ($asal === 'medis') {
-                return $this->findWasteById('b3_medis');
-            }
-        }
+        ['q1' => 'elektronik', 'q2' => 'kering', 'q3' => 'tidak', 'q4' => 'berbahaya', 'result' => 'Elektronik & Baterai'],
+        ['q1' => 'elektronik', 'q2' => 'kering', 'q3' => 'tidak', 'q4' => 'aman', 'result' => 'Elektronik & Baterai'],
+        ['q1' => 'elektronik', 'q2' => 'licin', 'q3' => 'tidak', 'q4' => 'aman', 'result' => 'Elektronik & Baterai'],
+        ['q1' => 'elektronik', 'q2' => 'licin', 'q3' => 'tidak', 'q4' => 'berbahaya', 'result' => 'Elektronik & Baterai'],
 
-        if ($asal === 'makanan' && $tekstur === 'basah' && $bau === 'berbau') {
-            return $this->findWasteById('organik_basah');
-        }
+        ['q1' => 'makanan', 'q2' => 'basah', 'q3' => 'berbau', 'q4' => 'aman', 'result' => 'Sampah Organik Basah (Sisa Makanan)'],
+        ['q1' => 'makanan', 'q2' => 'basah', 'q3' => 'tidak', 'q4' => 'aman', 'result' => 'Sisa Buah & Sayuran'],
+        ['q1' => 'makanan', 'q2' => 'kering', 'q3' => 'tidak', 'q4' => 'aman', 'result' => 'Sampah Organik Kering (Daun & Ranting)'],
+        ['q1' => 'makanan', 'q2' => 'basah', 'q3' => 'berbau', 'q4' => 'berbahaya', 'result' => 'Limbah Kimia Rumah Tangga'],
 
-        if ($asal === 'tumbuhan' && $tekstur === 'kering') {
-            return $this->findWasteById('organik_kering');
-        }
+        ['q1' => 'tumbuhan', 'q2' => 'kering', 'q3' => 'tidak', 'q4' => 'aman', 'result' => 'Sampah Organik Kering (Daun & Ranting)'],
+        ['q1' => 'tumbuhan', 'q2' => 'basah', 'q3' => 'berbau', 'q4' => 'aman', 'result' => 'Sampah Organik Basah (Sisa Makanan)'],
+        ['q1' => 'tumbuhan', 'q2' => 'kering', 'q3' => 'berbau', 'q4' => 'berbahaya', 'result' => 'Limbah Kimia Rumah Tangga'],
 
-        if ($asal === 'kemasan') {
-            if ($tekstur === 'licin') {
-                return $this->findWasteById('plastik');
-            } elseif ($tekstur === 'kering') {
-                return $this->findWasteById('kertas');
-            }
-        }
-
-        // Default: return yang paling sesuai
-        return $this->findWasteById('organik_basah');
-    }
-
-    private function findWasteById($id)
-    {
-        foreach ($this->knowledge_base as $waste) {
-            if ($waste['id'] === $id) {
-                return $waste;
-            }
-        }
-        return $this->knowledge_base[0];
-    }
+        ['q1' => 'kemasan', 'q2' => 'licin', 'q3' => 'tidak', 'q4' => 'aman', 'result' => 'Plastik Kemasan & Botol'],
+        ['q1' => 'kemasan', 'q2' => 'kering', 'q3' => 'tidak', 'q4' => 'aman', 'result' => 'Kertas & Kardus'],
+        ['q1' => 'kemasan', 'q2' => 'basah', 'q3' => 'berbau', 'q4' => 'aman', 'result' => 'Kertas & Kardus'],
+        ['q1' => 'kemasan', 'q2' => 'licin', 'q3' => 'tidak', 'q4' => 'berbahaya', 'result' => 'Kalong & Logan'],
+    ];
 
     public function konsultasi(Request $request)
     {
@@ -256,14 +86,12 @@ class ExpertSystemController extends Controller
             if ($request->has('answer')) {
                 $question_id = 'q' . $current_step;
                 $answers[$question_id] = $request->answer;
-
                 $request->session()->put('answers', $answers);
 
                 if ($current_step < count($this->questions)) {
                     $current_step++;
                     $request->session()->put('current_step', $current_step);
                 } else {
-                    // Diagnosis selesai
                     $result = $this->diagnoseWaste($answers);
                     $request->session()->forget(['current_step', 'answers']);
                 }
@@ -281,5 +109,76 @@ class ExpertSystemController extends Controller
             'answers' => $answers,
             'result' => $result
         ]);
+    }
+
+    private function diagnoseWaste($answers)
+    {
+        foreach ($this->customRules as $rule) {
+            if ($this->checkRuleConditions($rule, $answers)) {
+                return $this->getResultByName($rule['result']);
+            }
+        }
+
+        return $this->getDefaultResult();
+    }
+
+    private function checkRuleConditions($rule, $answers)
+    {
+        return
+            ($answers['q1'] ?? '') === $rule['q1'] &&
+            ($answers['q2'] ?? '') === $rule['q2'] &&
+            ($answers['q3'] ?? '') === $rule['q3'] &&
+            ($answers['q4'] ?? '') === $rule['q4'];
+    }
+
+    private function getResultByName($itemName)
+    {
+        $result = WasteKnowledge::where('jenis_sampah', 'like', '%' . $itemName . '%')
+            ->aktif()
+            ->first();
+
+        if ($result) {
+            return [
+                'id' => $result->id,
+                'jenis' => $result->jenis_sampah,
+                'icon' => $result->icon,
+                'ciri' => $result->ciri_ciri,
+                'pengelolaan' => $result->pengelolaan,
+                'deskripsi' => $result->deskripsi,
+                'langkah' => $result->langkah_langkah,
+                'kategori' => $result->kategori
+            ];
+        }
+
+        return $this->getDefaultResult();
+    }
+
+    private function getDefaultResult()
+    {
+        $defaultItem = WasteKnowledge::aktif()->first();
+
+        if ($defaultItem) {
+            return [
+                'id' => $defaultItem->id,
+                'jenis' => $defaultItem->jenis_sampah,
+                'icon' => $defaultItem->icon,
+                'ciri' => $defaultItem->ciri_ciri,
+                'pengelolaan' => $defaultItem->pengelolaan,
+                'deskripsi' => $defaultItem->deskripsi,
+                'langkah' => $defaultItem->langkah_langkah,
+                'kategori' => $defaultItem->kategori
+            ];
+        }
+
+        return [
+            'id' => 'default',
+            'jenis' => 'Sampah Umum',
+            'kategori' => 'organik',
+            'icon' => '🗑️',
+            'deskripsi' => 'Silakan pilah sampah berdasarkan jenisnya',
+            'pengelolaan' => 'Pisahkan antara sampah organik dan anorganik',
+            'langkah' => ['Pilah sampah', 'Buang pada tempat yang sesuai'],
+            'ciri' => ['tekstur' => 'bervariasi', 'bau' => 'bervariasi', 'asal' => 'bervariasi']
+        ];
     }
 }

@@ -12,11 +12,11 @@ return new class extends Migration
             $table->id();
             $table->string('jenis_sampah');
             $table->string('icon');
-            $table->json('ciri_ciri'); // Menyimpan ciri-ciri sebagai JSON
+            $table->json('ciri_ciri');
             $table->text('pengelolaan');
             $table->text('deskripsi');
-            $table->json('langkah_langkah'); // Menyimpan langkah sebagai JSON
-            $table->string('kategori'); // organik, anorganik, b3
+            $table->json('langkah_langkah');
+            $table->string('kategori');
             $table->boolean('aktif')->default(true);
             $table->timestamps();
         });

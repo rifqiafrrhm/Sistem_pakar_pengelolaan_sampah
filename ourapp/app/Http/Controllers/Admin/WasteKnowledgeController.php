@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class WasteKnowledgeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $knowledge = WasteKnowledge::orderBy('kategori')->orderBy('jenis_sampah')->get();
@@ -19,18 +17,13 @@ class WasteKnowledgeController extends Controller
         return view('admin.knowledge.index', compact('knowledge'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         $kategori = ['organik' => 'Organik', 'anorganik' => 'Anorganik', 'b3' => 'B3'];
         return view('admin.knowledge.create', compact('kategori'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -70,26 +63,16 @@ class WasteKnowledgeController extends Controller
             ->with('success', 'Data pengetahuan berhasil ditambahkan!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(WasteKnowledge $knowledge)
     {
         return view('admin.knowledge.show', compact('knowledge'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(WasteKnowledge $knowledge)
     {
         $kategori = ['organik' => 'Organik', 'anorganik' => 'Anorganik', 'b3' => 'B3'];
         return view('admin.knowledge.edit', compact('knowledge', 'kategori'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, WasteKnowledge $knowledge)
     {
         $validator = Validator::make($request->all(), [
@@ -129,9 +112,7 @@ class WasteKnowledgeController extends Controller
             ->with('success', 'Data pengetahuan berhasil diperbarui!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(WasteKnowledge $knowledge)
     {
         $knowledge->delete();
@@ -140,9 +121,7 @@ class WasteKnowledgeController extends Controller
             ->with('success', 'Data pengetahuan berhasil dihapus!');
     }
 
-    /**
-     * Toggle status aktif/non-aktif
-     */
+
     public function toggleStatus(WasteKnowledge $knowledge)
     {
         $knowledge->update([

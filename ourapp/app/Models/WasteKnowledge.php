@@ -28,13 +28,11 @@ class WasteKnowledge extends Model
         'aktif' => 'boolean'
     ];
 
-    // Scope untuk data aktif
     public function scopeAktif($query)
     {
         return $query->where('aktif', true);
     }
 
-    // Scope berdasarkan kategori
     public function scopeKategori($query, $kategori)
     {
         return $query->where('kategori', $kategori);

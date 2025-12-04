@@ -1,4 +1,3 @@
-{{-- resources/views/kontak.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Kontak')
@@ -8,7 +7,6 @@
     <h1 class="text-3xl font-bold text-green-600 mb-8 text-center">☎ Hubungi Kami</h1>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Form Kontak -->
         <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
             <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
                 <span class="text-green-500 mr-3">📧</span>
@@ -18,7 +16,6 @@
             <form action="{{ url('/kontak') }}" method="POST">
                 @csrf
 
-                <!-- Nama -->
                 <div class="mb-6">
                     <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
                     <input type="text"
@@ -32,7 +29,6 @@
                     @enderror
                 </div>
 
-                <!-- Email -->
                 <div class="mb-6">
                     <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Alamat Email</label>
                     <input type="email"
@@ -46,7 +42,6 @@
                     @enderror
                 </div>
 
-                <!-- Subjek -->
                 <div class="mb-6">
                     <label for="subjek" class="block text-sm font-medium text-gray-700 mb-2">Subjek</label>
                     <select id="subjek"
@@ -65,7 +60,6 @@
                     @enderror
                 </div>
 
-                <!-- Pesan -->
                 <div class="mb-6">
                     <label for="pesan" class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
                     <textarea id="pesan"
@@ -79,7 +73,6 @@
                     @enderror
                 </div>
 
-                <!-- Submit Button -->
                 <button type="submit"
                         class="w-full bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition duration-300 font-semibold">
                     📤 Kirim Pesan
@@ -87,9 +80,7 @@
             </form>
         </div>
 
-        <!-- Informasi Kontak -->
         <div class="space-y-8">
-            <!-- Informasi Developer -->
             <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
                 <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
                     <span class="text-blue-500 mr-3">👨‍💻</span>
@@ -131,7 +122,6 @@
                 </div>
             </div>
 
-            <!-- Media Sosial & GitHub -->
             <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
                 <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
                     <span class="text-purple-500 mr-3">🔗</span>
@@ -139,7 +129,6 @@
                 </h2>
 
                 <div class="grid grid-cols-2 gap-4">
-                    <!-- GitHub -->
                     <a href="https://github.com/ecowaste"
                        target="_blank"
                        class="bg-gray-800 text-white p-4 rounded-lg hover:bg-gray-900 transition flex items-center justify-center group">
@@ -150,7 +139,6 @@
                         </div>
                     </a>
 
-                    <!-- LinkedIn -->
                     <a href="https://linkedin.com/company/ecowaste"
                        target="_blank"
                        class="bg-blue-600 text-white p-4 rounded-lg hover:bg-blue-700 transition flex items-center justify-center group">
@@ -161,7 +149,6 @@
                         </div>
                     </a>
 
-                    <!-- Twitter -->
                     <a href="https://twitter.com/ecowaste"
                        target="_blank"
                        class="bg-sky-500 text-white p-4 rounded-lg hover:bg-sky-600 transition flex items-center justify-center group">
@@ -172,7 +159,6 @@
                         </div>
                     </a>
 
-                    <!-- Instagram -->
                     <a href="https://instagram.com/ecowaste"
                        target="_blank"
                        class="bg-pink-500 text-white p-4 rounded-lg hover:bg-pink-600 transition flex items-center justify-center group">
@@ -185,7 +171,6 @@
                 </div>
             </div>
 
-            <!-- Informasi Cepat -->
             <div class="bg-green-50 border border-green-200 rounded-lg p-6">
                 <h3 class="text-lg font-semibold text-green-800 mb-4 flex items-center">
                     <span class="text-green-600 mr-2">💡</span>
@@ -214,7 +199,6 @@
     </div>
 </div>
 
-<!-- Success Modal -->
 @if(session('success'))
 <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
     <div class="bg-white rounded-lg p-8 max-w-md mx-4">
@@ -237,7 +221,6 @@
         document.getElementById('successModal').style.display = 'none';
     }
 
-    // Auto close modal after 5 seconds
     setTimeout(closeModal, 5000);
 </script>
 @endif

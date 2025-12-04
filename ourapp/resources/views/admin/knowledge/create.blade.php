@@ -13,7 +13,6 @@
         @csrf
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Basic Information -->
             <div class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Sampah</label>
@@ -43,7 +42,6 @@
                 </div>
             </div>
 
-            <!-- Ciri-ciri -->
             <div class="space-y-4">
                 <h3 class="text-lg font-semibold text-gray-800">Ciri-ciri</h3>
 
@@ -70,7 +68,6 @@
             </div>
         </div>
 
-        <!-- Pengelolaan & Deskripsi -->
         <div class="mt-6 space-y-4">
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Cara Pengelolaan</label>
@@ -87,7 +84,6 @@
             </div>
         </div>
 
-        <!-- Langkah-langkah -->
         <div class="mt-6">
             <label class="block text-sm font-medium text-gray-700 mb-2">Langkah-langkah Penanganan</label>
             <div id="steps-container" class="space-y-2">
@@ -115,7 +111,6 @@
             </button>
         </div>
 
-        <!-- Submit Buttons -->
         <div class="mt-8 flex space-x-4">
             <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium">
                 Simpan Data
